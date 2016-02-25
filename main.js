@@ -18,6 +18,12 @@
 		}
 	}
 
+	function loop ( count , func ) {
+		for ( var i = 0 ; i < count ; i++ ) {
+			func( i );
+		}
+	}
+
 	function bindEvent ( el , type , func ) {
 		el.addEventListener( type , func );
 		return {
@@ -160,8 +166,31 @@
 	}
 
 	function initPage4 () {
-		var contentImage = querySelectorAll( ".content-img" );
+		var contentImage = querySelectorAll( ".page-4 .content-img" );
 		var circles = querySelectorAll( ".page4-circle" );
+		var curIndex = 0;
+		loopArray( contentImage , function ( img , i ) {
+			img.zindex = img.style.zIndex = i + 1;
+			function onEnd () {
+				// 将之前飞过去的清除
+				loop( 5 , function ( num ) {
+					contentImage[ num ].zindex = (contentImage[ num ].zindex + 1) % 5;
+					contentImage[ num ].style.zIndex = contentImage[ num ].zindex;
+					if ( num != i ) {
+						contentImage[ num ].classList.remove( "fly" );
+					}
+				} );
+			}
+
+			bindEvent( img , "webkitAnimationEnd" , onEnd );
+			bindEvent( img , "animationend" , onEnd );
+		} );
+
+		function fly () {
+			circles[ curIndex ].classList.remove( "select" );
+			contentImage[ 4 - curIndex ].classList.add( "fly" );
+		}
+
 
 	}
 
@@ -213,6 +242,8 @@
 		initPage0();
 		// page-2
 		initPage2();
+		// page-4
+		initPage4();
 		// page-5
 		initPage5();
 		resize();

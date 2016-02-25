@@ -170,7 +170,7 @@
 		var circles = querySelectorAll( ".page4-circle" );
 		var curIndex = 0;
 		loopArray( contentImage , function ( img , i ) {
-			img.zindex = img.style.zIndex = i + 1;
+			img.zindex = img.style.zIndex = i;
 			function onEnd () {
 				// 将之前飞过去的清除
 				loop( 5 , function ( num ) {
@@ -189,7 +189,11 @@
 		function fly () {
 			circles[ curIndex ].classList.remove( "select" );
 			contentImage[ 4 - curIndex ].classList.add( "fly" );
+			curIndex = (curIndex + 1) % 5;
+			circles[ curIndex ].classList.add( "select" );
 		}
+
+		var flyHandler = Timer( 4000 , fly );
 
 
 	}

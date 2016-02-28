@@ -1,0 +1,195 @@
+* {
+    -webkit-user-select: none;
+}
+
+body {
+    margin: 0;
+    background: #f4f3f8;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+.top {
+    width: 100%;
+    display: block;
+}
+
+.title {
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    color: #191a1b;
+}
+
+.my-maodou-border {
+    height: 149px;
+    position: relative;
+}
+
+.my-maodou-title {
+    position: absolute;
+    top: 13px;
+    left: 15px;
+}
+
+.my-maodou {
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    height: 13px;
+}
+
+.title-details {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    height: 11px;
+    margin: 10px;
+    font-size: 12px;
+    color: #666666;
+}
+
+.dou-img {
+    height: 95px;
+    position: absolute;
+    left: 50%;
+    margin-left: -47px;
+    top: 17px;
+}
+
+.my-maodou-word {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+    color: #666666;
+    font-size: 11px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.my-maodou-word span.left-maodou-num {
+    font-size: 20px;
+    color: #fe2454;
+    font-weight: bold;
+    position: relative;
+    bottom: -1px;
+}
+
+.priviledge-border {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.priviledge-title {
+    position: absolute;
+    left: 15px;
+    top: 13px;
+}
+
+.priviledge-border .content {
+    padding: 38px 15px 7px 15px;
+}
+
+.priviledge-border .content:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.more-priviledge-border {
+    height: 10px;
+    position: relative;
+    text-align: center;
+    font-size: 10px;
+    color: #666666;
+}
+
+.do-test-border {
+    position: relative;
+    padding-bottom: 11px;
+}
+
+.do-test-title {
+    margin: 13px 0 8px 15px;
+}
+
+.do-test-border .test-title {
+    color: #666666;
+    font-size: 10px;
+    margin-left: 15px;
+}
+
+.test-wrapper .img-wrapper {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    overflow: hidden;
+}
+
+.test-wrapper .img-wrapper img {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.test-wrapper .button {
+    width: 102px;
+    height: 31px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 31px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #fe2454;
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
+    right: 15px;
+}
+
+.test-wrapper .button.over {
+    background: #dbdade;
+}
+
+.priviledge-border .content .icon-border {
+    width: 100%;
+    height: 35px;
+    top: 16.78%;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+}
+
+.priviledge-border .content .icon-border img {
+    height: 100%;
+}
+
+.priviledge-border .content .title {
+    position: absolute;
+    top: 50%;
+    width: 68%;
+    left: 16%;
+    color: #191a1b;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+.priviledge-border .content .cost {
+    color: #666666;
+    font-size: 10px;
+    line-height: 16px;
+    position: absolute;
+    top: 75%;
+    width: 68%;
+    left: 16%;
+    text-align: center;
+}
+

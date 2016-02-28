@@ -185,7 +185,9 @@
         loopArray( document.querySelectorAll( ".do-test-border .button" ) , function ( btn ) {
             onTap( btn , function ( e , i ) {
                 if ( e.target.classList.contains( "not-over" ) ) {
-
+                    var mask = document.createElement( "div" );
+                    mask.classList.add( "mask" );
+                    document.body.appendChild( mask );
 
                 }
             } );

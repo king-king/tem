@@ -63,7 +63,7 @@
                 // url : "http://www.baidu.com"任务跳转链接,目前只有一个说明，暂时不跳转
                 detail : {
                     strategy : "每成功邀请1个微信好友，奖励10个猫豆。" ,
-                    url : "img/complete-invite.jpg" ,
+                    url : "img/config/complete-invite.jpg" ,// 图片宽度最好是420px
                     value : "+10"
                 }
             } ,
@@ -75,7 +75,7 @@
                 state : 1 ,
                 detail : {
                     strategy : "每编辑完成一项资料，获得3个猫豆。" ,
-                    url : "img/complete-data.jpg" ,
+                    url : "img/config/complete-data.jpg" ,
                     value : "+18"
                 }
                 //url : ""任务跳转链接
@@ -203,14 +203,30 @@
         } );
         var testWrapper = document.querySelector( ".do-test-border .content" );
         testWrapper.innerHTML = tContent;
-        loopArray( document.querySelectorAll( ".do-test-border .button" ) , function ( btn ) {
-            onTap( btn , function ( e , i ) {
+        loopArray( document.querySelectorAll( ".do-test-border .button" ) , function ( btn , i ) {
+            onTap( btn , function ( e ) {
                 if ( e.target.classList.contains( "not-over" ) ) {
                     var mask = element( "div" , { classList : [ "mask" ] } , document.body );
-                    var haeder = element( "div" , {
+                    var border = element( "div" , { classList : [ "test-detail-border" ] } , mask );
+                    element( "div" , {
                         classList : [ "detail-header" ] ,
-                        innerHTML : "<div class='detail-logo'></div><div class='detail-value'></div>"
-                    } , mask );
+                        innerHTML : "<div class='detail-logo'>&nbsp;</div><div class='detail-value'>" + data.test[ i ].detail.value + "</div>"
+                    } , border );
+                    element( "div" , {
+                        classList : [ "detail-title" ] ,
+                        innerHTML : data.test[ i ].detail.strategy
+                    } , border );
+                    element( "img" , {
+                        classList : [ "detail-content-img" ] ,
+                        src : data.test[ i ].detail.url
+                    } , border );
+                    var closeBtn = element( "div" , {
+                        classList : [ "detail-close-btn" ] ,
+                        innerHTML : "知道了"
+                    } , border );
+                    onTap( closeBtn , function () {
+                        document.body.removeChild( mask );
+                    } );
                 }
             } );
         } );

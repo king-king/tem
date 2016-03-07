@@ -270,6 +270,19 @@
 
 	}
 
+	function initPage6 () {
+		var downBtn;
+		pages[ 6 ].stop = function () {
+			downBtn.parentNode && downBtn.parentNode.removeChild( downBtn );
+		};
+		pages[ 6 ].play = function () {
+			downBtn = document.createElement( "div" );
+			downBtn.className = "download-btn absolute";
+			pages[ 6 ].appendChild( downBtn );
+			onTap( downBtn , jump );
+		};
+	}
+
 	function jump () {
 		if ( uaa.android ) {
 			location.href = "http://a.app.qq.com/o/simple.jsp?pkgname=com.cloud7.firstpage";
@@ -284,9 +297,9 @@
 		onTap( btn , jump );
 	} );
 	onTap( querySelector( ".page0-btn" ) , jump );
-	var downloadBtn = querySelector( ".download-btn" );
+	//var downloadBtn = querySelector( ".download-btn" );
 	//downloadBtn.onload = function () {
-	onTap( downloadBtn , jump );
+	//onTap( downloadBtn , jump );
 	//};
 	loopArray( pages , function ( p ) {
 		css( p , {
@@ -300,6 +313,7 @@
 		initPage2();
 		initPage3();
 		initPage4();
+		initPage6();
 		var sliding = false;
 		var loadingWord = [ "正在加载" , "正在加载 ." , "正在加载 . ." , "正在加载 . . ." ];
 		var loadingIndex = 0;

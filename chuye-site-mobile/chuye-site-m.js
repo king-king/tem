@@ -20,7 +20,10 @@
 		MicroMessenger : ua.toLowerCase().match( /MicroMessenger/i ) == "micromessenger"
 	};
 	var curPageIndex = 0;
-
+	window.onerror = function ( errorMessage , scriptURI , lineNumber , columnNumber , errorObj ) {
+		// TODO
+		alert( errorMessage )
+	};
 
 	function bindEvent ( el , type , func ) {
 		el.addEventListener( type , func , false );
@@ -198,6 +201,7 @@
 			curIndex = 0;
 		};
 		pages[ 2 ].play = function () {
+			alert("p")
 			handle = Timer( 5000 , function () {
 				contentBorders[ curIndex ].classList.add( "none" );
 				curIndex = (curIndex + 1) % 2;

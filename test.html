@@ -6,28 +6,57 @@
 
     <title>Title</title>
     <style>
-        .target {
-            width: 100px;
-            height: 100px;
-            background-color: green;
-            animation: 3s slide;
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
         }
 
-        @keyframes slide {
-            100% {
-                transform: translate3d(0, 200px, 0);
+        @keyframes down {
+            30% {
+                transform: translate3d(0, 204px, 0);
             }
+            45% {
+                transform: translate3d(0, 214px, 0);
+            }
+            100% {
+                transform: translate3d(0, 408px, 0);
+            }
+        }
+
+        @keyframes left {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-520px, 0, 0) rotate3d(0, 0, 1, 180deg);
+            }
+        }
+
+        .wrapper {
+            position: absolute;
+            left: 320px;
+            top: 100px;
+            width: 100px;
+            height: 100px;
+            animation: 3s down cubic-bezier(.5, .24, .61, 1.07);
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            /*animation: 3s left linear;*/
+            animation: 3s left cubic-bezier(.5, .24, .18, .93);
         }
     </style>
 </head>
 <body>
-<div class="target"></div>
+<div class="wrapper">
+    <img src="img/1.png">
+</div>
 <script>
     (function () {
-        var tar = document.querySelector( ".target" );
-        tar.addEventListener( "animationend" , function () {
-            alert( "ok" )
-        } )
+
     })();
 </script>
 </body>
